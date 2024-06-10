@@ -1,15 +1,20 @@
+# This code squares numbers from 1 to n and prints a newline at the end.
+
 import sys
 
-def potenciador():
-    ''' Esta función imprime los cuadrados de los números del 1 al n, y al final imprime un salto de línea '''
+def power(n):
+    """ This function squares numbers from 1 to n and prints a newline at the end. """
+    return n * n
+    
+
+if __name__ == "__main__":
     for line in sys.stdin:
         try:
-            if line == '\n':
+            if line.strip() == '':
                 print("\n")
-                return
+                break
             number = int(line.strip())
-            print(number ** 2)
+            result = power(number)
+            print(result)
         except ValueError:
-            print("Favor ingresar un número entero")
-
-potenciador()
+            print("Please enter an integer.")
