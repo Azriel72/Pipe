@@ -1,20 +1,27 @@
+# This code counts numbers from 1 to n and prints a newline at the end.
+
 import sys
 
-def contador(n):
-    ''' Esta funcion imprime los números del 1 al n, y al final imprime un salto de línea '''
+def counter(n):
+    """ This function prints numbers from 1 to n, and a newline at the end.  """
+    resultado = []
     for i in range(1, n + 1):
-        print(i)
         if i == n:
-            print("\n")
+            resultado.append(i)
+            return resultado
+        else:
+            resultado.append(i)
 
-if len(sys.argv) != 2:
-    print("Debe ingresar : 'python contador_pipe.py <número>'")
-    sys.exit(1)
+if __name__ == "__main__":
+    try:
+        if len(sys.argv) != 2:
+            print("Usage: python counter_pipe.py <number>")
+            sys.exit(1)
 
-try:
-    n = int(sys.argv[1])
-    contador(n)
-
-except ValueError:
-    print("El argumento debe ser un número entero")
-    sys.exit(1)
+        n = int(sys.argv[1])
+        result = counter(n)
+        for i in result:
+            print(i)
+    except ValueError:
+        print("The argument must be an integer.")
+        sys.exit(1)
